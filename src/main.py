@@ -50,7 +50,7 @@ def validate_first_name(first_name):
       - first name should has atleast 3 characters
     '''
     try:
-        pattern = "[A-Z][a-zA-Z]{2,}"
+        pattern = r"^[A-Z][a-zA-Z]{2,}$"
         if not re.match(pattern, first_name):
             raise ValueError(f"Error: First name should starts with Cap and should has minimum 3 characters")
         return first_name
@@ -66,7 +66,7 @@ def validate_last_name(last_name):
       - last name should has atleast 3 characters
     '''
     try:
-        pattern = "[A-Z][a-zA-Z]{2,}"
+        pattern = r"^[A-Z][a-zA-Z]{2,}$"
         if not re.match(pattern, last_name):
             raise ValueError(f"Error: Last name should starts with Cap and should has minimum 3 characters")
         return last_name
@@ -81,7 +81,7 @@ def validate_email_name(email):
       - Validate username, symbol, domain in email address
     '''
     try:
-        pattern = r"^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*@[a-zA-Z]+(\.[a-zA-Z0-9]{2,}){1,2}$"
+        pattern = r"^[a-zA-Z0-9+_-]+(\.[a-zA-Z0-9_-]+)*@[a-zA-Z0-9]+(\.[a-zA-Z]{2,}){1,2}$"
 
         if not re.match(pattern, email):
             raise ValueError(f"Error: invalid email! ")
@@ -97,7 +97,7 @@ def validate_phone_no(phone):
       - Should starts with Country code follow by space and 10 digit number
     '''
     try:
-        pattern = r"\d{1,2}\s\d{10}"
+        pattern = r"^\d{1,2}\s\d{10}$"
         if not re.match(pattern, phone):
             raise ValueError(f"Error: phone number should starts with Country code follow by space and 10 digit number")
         return phone
@@ -115,7 +115,7 @@ def validate_password(password):
       - exactly 1 Special Character
     '''
     try:
-        pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]*[-_@#$%+][a-zA-Z0-9]*$"
+        pattern = r"^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]*[-_@#$%+][a-zA-Z0-9]*$"
         if not re.match(pattern, password):
             raise ValueError(f"Error: Invalid password! ")
         return password
