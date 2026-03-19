@@ -2,13 +2,14 @@
 
 ## Introduction
 
-The User Registration Problem is a Python application used to Validate user's details. It validates user's first name, last name, Email address, phone number before creating user
+The User Registration Problem is a Python application used to Validate user's details. It validates user's first name, last name, Email address, phone number, password before creating user
 
 ## Features
  - validate user's first name
  - validate user's last name
  - validate user's email address
  - validate user's phone number
+ - validate user's password
 
  ## Project Files
  ```
