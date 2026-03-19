@@ -81,7 +81,7 @@ def validate_email_name(email):
       - Validate username, symbol, domain in email address
     '''
     try:
-        pattern = r"^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z]+(\.[a-zA-Z0-9]+)+$"
+        pattern = r"^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*@[a-zA-Z]+(\.[a-zA-Z0-9]{2,}){1,2}$"
 
         if not re.match(pattern, email):
             raise ValueError(f"Error: invalid email! ")
