@@ -2,11 +2,12 @@ import re
 
 class User:
 
-    def __init__(self, first_name, last_name, email, phone):
+    def __init__(self, first_name, last_name, email, phone, password):
         self.__first_name = first_name
         self.__last_name = last_name
         self.__email = email
         self.__phone = phone
+        self.__password = password
     
     @property
     def first_name(self):
@@ -23,6 +24,10 @@ class User:
     @property
     def phone(self):
         return self.__phone
+    
+    @property
+    def password(self):
+        return self.__password
 
     
     def __str__(self):
@@ -31,6 +36,7 @@ class User:
         Last Name  : {self.last_name}
         email      : {self.email}
         phone No.  : {self.phone}
+        pasword    : {self.password}
 '''
 
 
@@ -99,6 +105,21 @@ def validate_phone_no(phone):
         print(e)
 
 
+def validate_password(password):
+    '''
+    - Validate password
+      - 
+      - minimum 8 Characters
+    '''
+    try:
+        pattern = r"[A-Za-z0-9]{8,}"
+        if not re.match(pattern, password):
+            raise ValueError(f"Error: Invalid password! ")
+        return password
+    except ValueError as e:
+        print(e)
+
+
 
 def main():
     while(True):
@@ -106,8 +127,9 @@ def main():
         last_name = input("Enter last name: ")
         email = input("Enter email: ")
         phone = input("Enter phone number: ")
-        if validate_first_name(first_name) and validate_last_name(last_name) and validate_email_name(email) and validate_phone_no(phone):
-            user = User(first_name, last_name, email, phone)
+        password = input("Enter password: ")
+        if validate_first_name(first_name) and validate_last_name(last_name) and validate_email_name(email) and validate_phone_no(phone) and validate_password(password):
+            user = User(first_name, last_name, email, phone, password)
             print(user)
             break
 
