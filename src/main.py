@@ -111,10 +111,10 @@ def validate_password(password):
       - 
       - minimum 8 Characters
       - at least 1 Upper Case
-      - 
+      - at least 1 numeric number
     '''
     try:
-        pattern = r"(?=.*[A-Z])[A-Za-z0-9]{8,}"
+        pattern = r"(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9]{8,}"
         if not re.match(pattern, password):
             raise ValueError(f"Error: Invalid password! ")
         return password
